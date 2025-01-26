@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>Hello from React Chrome Extension!</h1>
+      <h1>Hi??????</h1>
     </div>
   );
 }
