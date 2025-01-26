@@ -11,39 +11,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Check for the button's existence dynamically
-    const observer = new MutationObserver((mutationsList, observer) => {
-        for (const mutation of mutationsList) {
-            if (mutation.type === 'childList') {
-                const submitButton = document.querySelector('button[data-testid="send-button"]');
-
-                if (submitButton) {
-                    console.log("Found submit button:", submitButton);
-                    setupButtonListener(submitButton); // Add the click listener
-                    observer.disconnect(); // Stop observing once the button is found
-                    break; // Exit the loop as we don't need to process further mutations
-                }
-            }
-        }
-    });
+    // Keep track of whether the listener is already attached
+    let isListenerAttached = false;
 
     // Function to set up the button listener
     const setupButtonListener = (button) => {
-        button.onclick = function() {
-            console.log("Clicked on submit!");
-            chrome.runtime.sendMessage(
-                { action: 'incrementCounter' },
-                (response) => {
-                    if (response && response.count !== undefined) {
-                        popUpSearchCountElement.textContent = response.count;
+        if (!isListenerAttached) {
+            button.addEventListener('click', () => {
+                console.log("Clicked on submit!");
+                chrome.runtime.sendMessage(
+                    { action: 'incrementCounter' },
+                    (response) => {
+                        if (response && response.count !== undefined) {
+                            isListenerAttached = true; // Mark listener as attached
+                            popUpSearchCountElement.textContent = response.count;
+                        }
                     }
-                }
-            );
-        };
+                );
+            });
+            console.log("Click listener attached to the submit button.");
+        }
     };
+
+    // Check for the button's existence dynamically
+    const observer = new MutationObserver((mutations) => {
+        console.log("Querying for submit button");
+        const submitButton = document.querySelector('button[data-testid="send-button"]');
+
+        if (submitButton) {
+            console.log("Found submit button:", submitButton);
+            isListenerAttached = false;
+            setupButtonListener(submitButton); // Add the click listener
+        }
+        }
+    );
 
     // Start observing changes in the body
     observer.observe(document.body, { childList: true, subtree: true });
+
+    console.log("Observer is running continuously.");
 });
-
-
