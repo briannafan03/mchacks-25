@@ -1,5 +1,8 @@
 // content.js
 let sendButtonClicked = false;
+const popUpSearchCountElement = document.getElementById('search-count');
+console.log('Popup element in incrementCounter():', popUpSearchCountElement);
+
 
 // Fetch the initial counter value from the background script
 chrome.runtime.sendMessage({ action: 'getCounter' }, (response) => {
@@ -15,10 +18,11 @@ function incrementCounter() {
     chrome.runtime.sendMessage(
         { action: 'incrementCounter' },
         (response) => {
+        console.log('Response for incrementCounter sendMessage:', response);
+        console.log('Popup element in incrementCounter():', popUpSearchCountElement);
         if (chrome.runtime.lastError) {
             console.error('Error sending increment count message:', chrome.runtime.lastError);
         } else if (popUpSearchCountElement) {
-            //TODO: replace the following line so it calls the lines in popup.js instead, and alter popup.js so it has the same functionality as the next line
             popUpSearchCountElement.textContent = response.count;
             console.log('Increment count message sent successfully', response);
         } else {

@@ -5,8 +5,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'incrementCounter') {
         counter++;
         console.log('Counter incremented in background.js'); 
-        sendResponse({ count: counter }); 
+        chrome.runtime.sendMessage({
+            action: 'updateUI',
+            data: 'Hello from background.js!',
+        });
     }  else if (message.action === 'getCounter') {
         sendResponse({ count: counter });
     }
 });
+
+
+
