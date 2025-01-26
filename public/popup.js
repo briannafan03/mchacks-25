@@ -15,7 +15,7 @@ const updateProgressBar = (count) => {
   const progressLabel = document.getElementById("progress-label");
 
   // Calculate progress as percentage (assuming max progress is 100)
-  const progress = Math.min(count, 100); // Ensure it doesn't go above 100%
+  const progress = Math.min((count * 4), 100); // Ensure it doesn't go above 100%
 
   // Update the width of the progress bar
   progressBarFill.style.width = `${progress}%`;
