@@ -4,50 +4,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EcoCompute</title>
+  <title>plant pal</title>
   <link rel="stylesheet" href="popup.css">
   <script src="popup.js"></script>
 </head>
 <body>
-  <h1>EcoCompute</h1>
-  <div class="header">
-    <img src="./assets/character_icon.png" alt="Character Icon" class="character-icon">
-    <p>You have used equivalent to...</p>
-  </div>
+  <h1>plant pal</h1>
+  <img src="./assets/character_icon.png" alt="Character Icon" class="character-icon">
+  <p><span class="counter" id="count">0</span> prompts submitted</p>
+  <p>You have used equivalent to...</p>
 
   <!-- Progress Bar Section -->
-  <div class="progress-row">
-    <div class="progress-bar-container">
-      <div class="progress-bar">
-        <div class="progress-bar-fill-one" id="progress-bar-fill-one"></div>
-      </div>
-    </div>
-    <img src="./assets/water.png" alt="water" class="icon">
+  <div class="progress-bar">
+  <div class="progress-bar-fill-one" id="progress-bar-fill-one"></div>
   </div>
-  <span id="waterBottleCount">x 0</span>
   <div class="progress-label"><span id="progress-label-one">0%</span> of a water bottle</span></div>
 
-
-  <div class="progress-row">
-    <div class="progress-bar-container">
-      <div class="progress-bar">
-        <div class="progress-bar-fill-two" id="progress-bar-fill-two"></div>
-      </div>
-    </div>
-    <img src="./assets/lightbulb.png" alt="light bulb" class="icon">
+  <div class="progress-bar">
+  <div class="progress-bar-fill-two" id="progress-bar-fill-two"></div>
   </div>
-  <span id="lightBulbCount">x 0</span>
   <div class="progress-label"><span id="progress-label-two">0%</span> to lighting a 3W light bulb for 24 hours</span></div>
 
-  <div class="progress-row">
-    <div class="progress-bar-container">
-      <div class="progress-bar">
-        <div class="progress-bar-fill-three" id="progress-bar-fill-three"></div>
-      </div>
-    </div>
-    <img src="./assets/co2.png" alt="co2" class="icon">
+  <div class="progress-bar">
+  <div class="progress-bar-fill-three" id="progress-bar-fill-three"></div>
   </div>
-  <span id="kettleCount">x 0</span>
   <div class="progress-label"><span id="progress-label-three">0%</span> way to boil a kettle</span></div>
 </body>
 </html>
