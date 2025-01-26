@@ -4,69 +4,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChatGPT Prompt Counter</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 10px;
-      width: 250px;
-    }
-    h1 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-    .counter {
-      font-size: 24px;
-      font-weight: bold;
-      color: #2c3e50;
-    }
-    .progress-bar {
-      width: 100%;
-      height: 20px;
-      background-color: #f3f3f3;
-      border-radius: 10px;
-      margin-top: 10px;
-    }
-    .progress-bar-fill {
-      height: 100%;
-      border-radius: 10px;
-      background-color: #2ecc71; /* Default color (green) */
-      transition: width 0.5s ease-out;
-    }
-    .progress-label {
-      margin-top: 5px;
-      font-size: 14px;
-      text-align: center;
-    }
-    button {
-      display: block;
-      width: 100%;
-      margin-top: 10px;
-      padding: 10px;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #2980b9;
-    }
-  </style>
+  <title>EcoCompute</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="popup.js"></script>
 </head>
 <body>
-  <h1>ChatGPT Prompt Counter</h1>
+  <h1>EcoCompute</h1>
   <div class="counter" id="count">0</div>
+  <p>You have used equivalent to...</p>
 
   <!-- Progress Bar Section -->
   <div class="progress-bar">
-    <div class="progress-bar-fill" id="progress-bar-fill"></div>
+  <div class="progress-bar-one" id="progress-bar-fill-one"></div>
   </div>
-  <div class="progress-label" id="progress-label">0%</div>
-  
-  <button id="progress-button">Progress</button>
+  <div class="progress-label"><span id="progress-label-one">0%</span> of a water bottle</span></div>
 
-  <script src="popup.js"></script>
+  <div class="progress-bar">
+  <div class="progress-bar-fill-two" id="progress-bar-fill-two"></div>
+  </div>
+  <div class="progress-label"><span id="progress-label-two">0%</span> to lighting a 3W light bulb for 24 hours</span></div>
+
+  <div class="progress-bar">
+  <div class="progress-bar-fill-three" id="progress-bar-fill-three"></div>
+  </div>
+  <div class="progress-label"><span id="progress-label-three">0%</span> way to boil a kettle</span></div>
 </body>
 </html>

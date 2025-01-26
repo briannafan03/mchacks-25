@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    width: 250px;
+  }
+  h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+  .counter {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  .progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  .progress-bar-fill-one {
+    height: 100%;
+    border-radius: 10px;
+    background-color: #2ecc71; /* Default color (green) */
+    transition: width 0.5s ease-out;
+  }
+  .progress-bar-fill-two {
+    height: 100%;
+    border-radius: 10px;
+    background-color: #2ecc71; /* Default color (green) */
+    transition: width 0.5s ease-out;
+  }
+  .progress-bar-fill-three {
+    height: 100%;
+    border-radius: 10px;
+    background-color: #2ecc71; /* Default color (green) */
+    transition: width 0.5s ease-out;
+  }
+  .progress-label {
+    margin-top: 3px;
+    font-size: 11px;
+    text-align: left;
+    margin-left: 5px;
+  }
+  button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #2980b9;
+  }
