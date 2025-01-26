@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container{
+  width: 200px;
+  margin-top: 200px;
+
+}
+
+.progress-bar{
+  width: 200px;
+  margin-top: 200px;
+  border-radius: 10px;
+  background-color: aqua;
+  margin-bottom: 10px;
+}
+
+.progress-bar-fill{
+  height: 100%;
+  border-radius: 10px;
+  background-color: green;
+  transition: width 0.5s ease-out;
+}
+
+.progress-label{
+  margin-top: 10px
+}

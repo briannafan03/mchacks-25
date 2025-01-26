@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChatGPT prompt counter</title>
+  <title>ChatGPT Prompt Counter</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       padding: 10px;
-      width: 200px;
+      width: 250px;
     }
     h1 {
       font-size: 18px;
@@ -20,12 +20,53 @@
       font-weight: bold;
       color: #2c3e50;
     }
+    .progress-bar {
+      width: 100%;
+      height: 20px;
+      background-color: #f3f3f3;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 10px;
+      background-color: #2ecc71; /* Default color (green) */
+      transition: width 0.5s ease-out;
+    }
+    .progress-label {
+      margin-top: 5px;
+      font-size: 14px;
+      text-align: center;
+    }
+    button {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
   </style>
 </head>
 <body>
-  <h1>ChatGPT prompt Counter</h1>
-  <div class="counter" id="count"> </div>
+  <h1>ChatGPT Prompt Counter</h1>
+  <div class="counter" id="count">0</div>
+
+  <!-- Progress Bar Section -->
+  <div class="progress-bar">
+    <div class="progress-bar-fill" id="progress-bar-fill"></div>
+  </div>
+  <div class="progress-label" id="progress-label">0%</div>
   
+  <button id="progress-button">Progress</button>
+
   <script src="popup.js"></script>
 </body>
 </html>
