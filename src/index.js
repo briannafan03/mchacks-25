@@ -4,7 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// Select the existing root element in index.html
+const rootElement = document.getElementById('root');
+
+// Create the React root
+const root = ReactDOM.createRoot(rootElement);
+
+// Render the App component
 root.render(
   <React.StrictMode>
     <App />
