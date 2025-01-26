@@ -2,10 +2,16 @@
   "name": "Hello Extensions",
   "description" : "Base Level Extension",
   "version": "1.0",
+<<<<<<< HEAD
   "manifest_version": 2,
   "browser_action": {
     "default_popup": "index.html",
     "default_title": "Open the popup"
+=======
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html"
+>>>>>>> victoria
   },
   "icons": {
     "16": "logo192.png",
@@ -13,9 +19,30 @@
     "128": "logo192.png"
   },
   "permissions": [
+<<<<<<< HEAD
     "activeTab"
   ],
   "optional_permissions": [
     "<all_urls>"
   ]
+=======
+    "activeTab", "storage"
+  ],
+  
+  "host_permissions": [
+    "https://chat.openai.com/*"
+  ],
+  
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*"],
+      "js": ["content.js"]
+    }
+  ], 
+  
+  "background": {
+    "service_worker": "background.js"
+  }
+>>>>>>> victoria
 }
+
