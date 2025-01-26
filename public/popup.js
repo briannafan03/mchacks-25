@@ -24,12 +24,10 @@ const updateProgressBar = (count) => {
   progressLabelOne.textContent = `${progressOne}%`;
 
   // Change the color of the progress bar based on progress value
-  if (progressOne < 40) {
-    progressBarFillOne.style.backgroundColor = "#ff0000"; // Red
-  } else if (progressOne < 70) {
+  if (progressOne > 40 && progressOne < 70) {
     progressBarFillOne.style.backgroundColor = "#ffa500"; // Orange
-  } else {
-    progressBarFillOne.style.backgroundColor = "#2ecc71"; // Green
+  } else if (progressOne > 70 ) {
+    progressBarFillOne.style.backgroundColor = "#ff0000"; // Red
   }
 
 
@@ -46,12 +44,10 @@ const updateProgressBar = (count) => {
   progressLabelTwo.textContent = `${progressTwo}%`;
 
   // Change the color of the progress bar based on progress value
-  if (progressTwo < 40) {
-    progressBarFillTwo.style.backgroundColor = "#ff0000"; // Red
-  } else if (progressTwo < 70) {
+  if (progressTwo > 40 && progressTwo < 70) {
     progressBarFillTwo.style.backgroundColor = "#ffa500"; // Orange
-  } else {
-    progressBarFillTwo.style.backgroundColor = "#2ecc71"; // Green
+  } else if (progressTwo > 70 ) {
+    progressBarFillTwo.style.backgroundColor = "#ff0000"; // Red
   }
 
 
@@ -68,13 +64,12 @@ const updateProgressBar = (count) => {
   progressLabelThree.textContent = `${progressThree}%`;
 
   // Change the color of the progress bar based on progress value
-  if (progressThree < 40) {
-    progressBarFillThree.style.backgroundColor = "#ff0000"; // Red
-  } else if (progress < 70) {
+  if (progressThree > 40 && progressThree < 70) {
     progressBarFillThree.style.backgroundColor = "#ffa500"; // Orange
-  } else {
-    progressBarFillThree.style.backgroundColor = "#2ecc71"; // Green
+  } else if (progressThree > 70 ) {
+    progressBarFillThree.style.backgroundColor = "#ff0000"; // Red
   }
+
 };
 
 // Optional: If you want to increment progress by clicking a button

@@ -27,19 +27,19 @@ body {
     height: 100%;
     border-radius: 10px;
     background-color: #2ecc71; /* Default color (green) */
-    transition: width 0.5s ease-out;
+    width: 0%;
   }
   .progress-bar-fill-two {
     height: 100%;
     border-radius: 10px;
     background-color: #2ecc71; /* Default color (green) */
-    transition: width 0.5s ease-out;
+    width: 0%;
   }
   .progress-bar-fill-three {
     height: 100%;
     border-radius: 10px;
     background-color: #2ecc71; /* Default color (green) */
-    transition: width 0.5s ease-out;
+    width: 0%;
   }
   .progress-label {
     margin-top: 3px;
