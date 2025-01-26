@@ -2,84 +2,130 @@
 
 // Get the current visit count from Chrome's storage and update the counter
 chrome.storage.local.get("visitCount", (data) => {
-    const count = data.visitCount || 0; // Fallback to 0 if undefined
-    document.getElementById("count").textContent = count;
+  const count = data.visitCount || 0; // Fallback to 0 if undefined
+  document.getElementById("count").textContent = count;
 
-    // Update the progress bar based on visitCount
-    updateProgressBar(count);
+  // Update the progress bar based on visitCount
+  updateProgressBar(count);
 });
 
+
+const updateWaterBottle = (progressOne, progressBarFillOne, progressLabelOne) => {
+  return new Promise((resolve) => {
+    chrome.storage.local.get("waterBottleCount", (data) => {
+      let waterBottleCount = data.waterBottleCount || 0;
+      console.log("waterBottleCount: ", waterBottleCount);
+      if (progressOne === 100) {
+        waterBottleCount++;
+        chrome.storage.local.set({ waterBottleCount: waterBottleCount });
+        document.getElementById("waterBottleCount").textContent = `x ${waterBottleCount}`;
+        progressBarFillOne.style.width = '0%';
+        progressLabelOne.textContent = '0%';
+        resolve(); // Resolve after updating the count
+      } else {
+        document.getElementById("waterBottleCount").textContent = `x ${waterBottleCount}`;
+        resolve(); // Resolve immediately if no update is needed
+      }
+    });
+  });
+};
+
+const updateLightBulb = (progressTwo) => {
+  return new Promise((resolve) => {
+    chrome.storage.local.get("lightBulbCount", (data) => {
+      let lightBulbCount = data.lightBulbCount || 0;
+
+      if (progressTwo >= 100) {
+        lightBulbCount++;
+        chrome.storage.local.set({ lightBulbCount }, () => {
+          document.getElementById("lightBulbCount").textContent = `x ${lightBulbCount}`;
+          resolve();
+        });
+      } else {
+        document.getElementById("lightBulbCount").textContent = `x ${lightBulbCount}`;
+        resolve();
+      }
+    });
+  });
+};
+
+const updateKettle = (progressThree) => {
+  return new Promise((resolve) => {
+    chrome.storage.local.get("kettleCount", (data) => {
+      let kettleCount = data.kettleCount || 0;
+
+      if (progressThree >= 100) {
+        kettleCount++;
+        chrome.storage.local.set({ kettleCount }, () => {
+          document.getElementById("kettleCount").textContent = `x ${kettleCount}`;
+          resolve();
+        });
+      } else {
+        document.getElementById("kettleCount").textContent = `x ${kettleCount}`;
+        resolve();
+      }
+    });
+  });
+};
+
 // Function to update the progress bar and its label
-const updateProgressBar = (count) => {
+const updateProgressBar = async (count) => {
   const progressBarFillOne = document.getElementById("progress-bar-fill-one");
   const progressLabelOne = document.getElementById("progress-label-one");
 
-  // Calculate progress as percentage, water bottle every 7 prompts (assuming max progress is 100)
-  const progressOne = Math.min((count * 7), 100); // Ensure it doesn't go above 100%
-
-  // Update the width of the progress bar
+  const progressOne = Math.min(count * 50, 100);
   progressBarFillOne.style.width = `${progressOne}%`;
-
-  // Update the progress label
   progressLabelOne.textContent = `${progressOne}%`;
 
-  // Change the color of the progress bar based on progress value
   if (progressOne > 40 && progressOne < 70) {
-    progressBarFillOne.style.backgroundColor = "#ffa500"; // Orange
-  } else if (progressOne > 70 ) {
-    progressBarFillOne.style.backgroundColor = "#ff0000"; // Red
+    progressBarFillOne.style.backgroundColor = "#ffa500";
+  } else if (progressOne > 70) {
+    progressBarFillOne.style.backgroundColor = "#ff0000";
   }
 
+  try {
+    await updateWaterBottle(progressOne, progressBarFillOne, progressLabelOne);
+  } catch (error) {
+    console.error("Error during updateWaterBottle:", error);
+  }
 
   const progressBarFillTwo = document.getElementById("progress-bar-fill-two");
   const progressLabelTwo = document.getElementById("progress-label-two");
 
-  // Calculate progress as percentage, 3W light bulb for 24 hours (assuming max progress is 100)
-  const progressTwo = Math.min((count * 4.17), 100); // Ensure it doesn't go above 100%
-
-  // Update the width of the progress bar
+  const progressTwo = Math.min(count * 4.17, 100);
   progressBarFillTwo.style.width = `${progressTwo}%`;
-
-  // Update the progress label
   progressLabelTwo.textContent = `${progressTwo}%`;
 
-  // Change the color of the progress bar based on progress value
   if (progressTwo > 40 && progressTwo < 70) {
-    progressBarFillTwo.style.backgroundColor = "#ffa500"; // Orange
-  } else if (progressTwo > 70 ) {
-    progressBarFillTwo.style.backgroundColor = "#ff0000"; // Red
+    progressBarFillTwo.style.backgroundColor = "#ffa500";
+  } else if (progressTwo > 70) {
+    progressBarFillTwo.style.backgroundColor = "#ff0000";
   }
 
+  try {
+    await updateLightBulb(progressTwo);
+  } catch (error) {
+    console.error("Error during updateLightBulb:", error);
+  }
 
   const progressBarFillThree = document.getElementById("progress-bar-fill-three");
   const progressLabelThree = document.getElementById("progress-label-three");
 
-  // Calculate progress as percentage (assuming max progress is 100)
-  const progressThree = Math.min((count * 6.25), 100); // Ensure it doesn't go above 100%
-
-  // Update the width of the progress bar
+  const progressThree = Math.min(count * 6.25, 100);
   progressBarFillThree.style.width = `${progressThree}%`;
-
-  // Update the progress label
   progressLabelThree.textContent = `${progressThree}%`;
 
-  // Change the color of the progress bar based on progress value
   if (progressThree > 40 && progressThree < 70) {
-    progressBarFillThree.style.backgroundColor = "#ffa500"; // Orange
-  } else if (progressThree > 70 ) {
-    progressBarFillThree.style.backgroundColor = "#ff0000"; // Red
+    progressBarFillThree.style.backgroundColor = "#ffa500";
+  } else if (progressThree > 70) {
+    progressBarFillThree.style.backgroundColor = "#ff0000";
   }
 
+  try {
+    await updateKettle(progressThree);
+  } catch (error) {
+    console.error("Error during updateKettle:", error);
+  }
+
+  console.log("Progress bar update complete.");
 };
-
-// Optional: If you want to increment progress by clicking a button
-document.getElementById("progress-button").addEventListener("click", () => {
-  chrome.runtime.sendMessage({ type: "incrementCounter" });
-
-  // After incrementing the counter, update the progress bar again
-  chrome.storage.local.get("visitCount", (data) => {
-    const count = data.visitCount || 0;
-    document.getElementById("count").textContent = count;
-    updateProgressBar(count);
-  });
-});
