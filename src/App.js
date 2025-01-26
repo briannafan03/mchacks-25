@@ -1,6 +1,7 @@
 /* global chrome */
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import { ProgressBar } from './progressbar';
 
 function App() {
   const [counter, setCounter] = useState(0);
@@ -24,8 +25,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>EcoCompute 🌿</h1>
-      <p>Track your search activity efficiently!</p>
+      <h1>Hi??????</h1>
+      <ProgressBar />
     </div>
   );
 }
