@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Plant Pal – Chrome Extension for AI Environmental Awareness
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Plant Pal is a Chrome extension that raises awareness about the environmental impact of generative AI queries. As AI becomes part of everyday life, most users don’t realize the compute, water, and energy consumption behind each model response. Plant Pal makes this invisible cost visible—without discouraging the use of AI.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🌱 What It Does
+Plant Pal detects when a user submits a query to ChatGPT and calculates its estimated environmental impact.  
+The extension popup displays fun, relatable progress bars showing cumulative impact toward:
+- 1 bottle of water  
+- 1 hour of a lightbulb  
+- 1 electric kettle brought to a boil  
 
-### `npm start`
+Each ChatGPT query nudges the bars forward, helping users contextualize AI’s real-world footprint.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠 How We Built It
+- Designed UI/UX, icons, and flow in **Figma**
+- Bootstrapped a **React** app and restructured it for Chrome extension architecture
+- Used the **Chrome Extensions API** + JavaScript to:
+  - Monitor ChatGPT activity
+  - Detect when a query is submitted
+  - Increment counters and update the popup in real time
 
-### `npm test`
+---
+## 🌍 What’s Next
+- More accurate environmental metrics based on:
+  - Model type  
+  - Query length  
+  - Estimated compute load  
+- Rotating “unfun facts” about AI’s environmental impact  
+- More visualization options and impact breakdowns
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 📖 Sources
+- Water/compute research: https://arxiv.org/pdf/2304.03271  
+- CO₂ emissions estimates: https://piktochart.com/blog/carbon-footprint-of-chatgpt/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
